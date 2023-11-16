@@ -1,0 +1,29 @@
+
+@import url(./assets/styles/mixins.scss);
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: solid #db5594 .01px;
+  align-items: center;
+
+  &-logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:black;
+    font-weight:medium;
+    font-size:20px;
+    svg{
+      width:35px;
+      color: #efa0cc;
+    }
+    svg:hover{
+      color: #db5594;
+      filter: drop-shadow(0 0 0.5em #646cffaa);
+    }
+    
+  }
+  
+}
