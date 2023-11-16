@@ -46,6 +46,8 @@
   }
   &-select{
     width:50%;
+    height:fit-content;
+    text-align: center;
     display:flex;
     border: solid #db5594 2px;
     background-color: #efa0cc;
@@ -53,7 +55,7 @@
     justify-content: space-around;
     @include tablet{
       height:2rem;
-      width:35%;
+      width:fit-content;
     }
     @include desktop{
       width:25%;
@@ -107,6 +109,7 @@
     button:hover{
       border: #db5594 solid 2px;
       filter: drop-shadow(0 0 0.5em #646cffaa);
+      cursor: pointer;
     }
   }
   

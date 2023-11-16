@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../index.scss";
+import "../assets/styles/header.scss";
 
 function Header() {
   const [count, setCount] = useState(0);
