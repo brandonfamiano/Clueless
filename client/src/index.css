@@ -1,0 +1,13 @@
+
+a {
+  font-weight: 500;
+  color: #efa0cc;
+  text-decoration: inherit;
+  
+}
+svg{
+  width:50px;
+}
+a:hover {
+  color: #db5594;
+}
