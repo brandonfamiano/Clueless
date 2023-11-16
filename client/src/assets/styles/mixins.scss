@@ -1,0 +1,35 @@
+@font-face {
+    font-family:'Raleway';
+    src: url(../fonts/Raleway-Regular.ttf) format('opentype');
+    font-weight:normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(../fonts/Raleway-Medium.ttf0) format('opentype');
+    font-weight: medium;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(../fonts/Raleway-Bold.ttf) format('opentype');
+    font-weight:bold;
+}
+
+body{
+    font-family:'Raleway';
+}
+
+button{
+    text-decoration: none;
+    font-family:inherit;
+    text-align: inherit;
+    display:block;
+}
+a{
+    text-decoration: none;
+}
+@mixin tablet {
+    @media (min-width:768px){@content;}
+}
+@mixin desktop {
+    @media (min-width:1280px){@content;}
+}
