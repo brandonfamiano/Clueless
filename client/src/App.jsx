@@ -1,13 +1,22 @@
-import { useState } from "react";
-import Header from "./components/Header";
-function App() {
-  const [count, setCount] = useState(0);
 
+ import {Route, Routes} from 'react-router-dom';
+ import Index from './pages/index'
+import Login from './pages/Login';
+import Layout from './Layout';
+import Register from './pages/Register';
+import axios from 'axios';
+
+axios.defaults.baseURL ='http://localhost:4000'
+function App() {
   return (
-    <div className='body'>
-      <Header />
-    </div>
-  );
+    <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<Index/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Route>  
+    </Routes>
+  )
 }
 
 export default App;

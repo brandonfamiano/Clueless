@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../assets/styles/header.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [count, setCount] = useState(0);
@@ -25,13 +26,13 @@ function Header() {
           <span className='header-logo-name'>Clueless</span>
         </a>
         <div className='header-select'>
-          <button className='selected header-select__item '>About</button>
+          <button className='header-select__item '>About</button>
           <div className='line'></div>
           <button className='header-select__item'>My Wardrobe</button>
           <div className='line'></div>
           <button className='header-select__item'>Shop</button>
         </div>
-        <div className='header-user'>
+        <Link to={'/login'}className='header-user'>
           <button>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -48,7 +49,7 @@ function Header() {
               />
             </svg>
           </button>
-        </div>
+        </Link>
       </header>
     </div>
   );

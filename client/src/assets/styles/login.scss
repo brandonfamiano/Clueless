@@ -1,0 +1,58 @@
+span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    color: #db5594
+}
+form{
+    margin-top:1rem;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    @include desktop{
+        width:50%;
+    }
+}
+input{
+    text-align: center;
+    padding:1rem;
+    margin:.5rem;
+    @include desktop{
+        font-size: 16.5px;;
+    }
+}
+input:hover{
+    border:#efa0cc solid 1px;
+    @include desktop{
+        border:#efa0cc solid 2px;
+    }
+}
+input:focus{
+    outline: #db5594 solid 1px;
+}
+.login{
+    text-decoration: none;
+    text-align: center;
+    background-color:#db5594;
+    height:4rem;
+    border-radius: 25px;
+    border-color:white;
+    box-shadow: inset;
+    &:hover{
+        color:white;
+        cursor: pointer;
+    }
+    @include desktop{
+        font-size:18px;
+    }
+}
+a{
+    text-decoration: none;
+    color:#db5594;
+    &:hover{
+        color:#efa0cc;
+    }
+}
