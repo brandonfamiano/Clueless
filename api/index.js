@@ -46,17 +46,16 @@ app.post('/login', async (req,res) => {
         const passAuthentication = bcrypt.compareSync(password, userDoc.password)
         if (passAuthentication) {
             jwt.sign({email:userDoc.email,id:userDoc._id}, cookieEncrypt, {}, (err, token) =>{
-                if (err) throw err;
                 res.cookie('token',token).json(userDoc);
             });
         } else {
-            res.json('Password Incorrect')
+            res.status(401).json({ error: 'Password Incorrect' });
         }
     } else{
-        res.json('Account information incorrect');
+        res.status(401).json({ error: 'Account information incorrect' });
     }
 });
-app.get('/wardrobe', (req,res) =>{
+app.get('/account', (req,res) =>{
     const {token} = req.cookies;
     if (token){
         jwt.verify(token, cookieEncrypt, {}, async (err,user) =>{
@@ -68,5 +67,7 @@ app.get('/wardrobe', (req,res) =>{
         res.json(null);
     }
 })
-
+app.post('/logout', (req,res) =>{
+    res.cookie('token', '').json(true);
+})
 app.listen(4000);

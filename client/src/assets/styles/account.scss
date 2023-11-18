@@ -1,0 +1,22 @@
+.account {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    &-button {
+        text-decoration: none;
+        text-align: center;
+        background-color:#db5594;
+        height:4rem;
+        border-radius: 25px;
+        border-color:white;
+        box-shadow: inset;
+        &:hover{
+            color:white;
+            cursor: pointer;
+        }
+        @include desktop{
+            font-size:18px;
+            width:20rem;
+        }
+    }
+}
