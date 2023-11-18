@@ -1,18 +1,28 @@
 import { useState } from 'react'
 import '../assets/styles/login.scss'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 export default function Register(){
     const[name,setName] =useState('');
     const[email,setEmail] =useState('');
     const[password,setPassword] =useState('');
-    function registerHandler(e){
+    const[redirect, setRedirect] =useState(false);
+    async function registerHandler(e){
         e.preventDefault();
-        axios.post('/register',{
-            name,
-            email,
-            password,
-        })}''
+        try{
+            await axios.post('/register',{
+                name,
+                email,
+                password,
+            })
+            console.log('registration complete');
+            setRedirect(true)
+        } catch(e){
+            alert('Email already exists');
+        }};
+        if (redirect){
+            return <Navigate to={'/'}/>
+        }
     return (
         <div>
             <span>

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../assets/styles/header.scss";
 import { Link } from "react-router-dom";
+import { UserContext } from "../pages/UserContext";
 
 function Header() {
   const [count, setCount] = useState(0);
-
+  const {user} = useContext(UserContext)
   return (
+    
     <div className='body'>
       <header className='header'>
         <a href='/' className='header-logo'>
@@ -32,7 +34,7 @@ function Header() {
           <div className='line'></div>
           <button className='header-select__item'>Shop</button>
         </div>
-        <Link to={'/login'}className='header-user'>
+        <Link to={user?'/account':'/login'}className='header-user'>
           <button>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -49,6 +51,11 @@ function Header() {
               />
             </svg>
           </button>
+          {!! user &&(
+            <div>
+              {user.name}
+            </div>
+          )}
         </Link>
       </header>
     </div>
