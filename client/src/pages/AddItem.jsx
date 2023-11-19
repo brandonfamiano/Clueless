@@ -10,9 +10,6 @@ export default function AddItem(){
     const [description,setDescription] = useState('');
     const [redirect, setRedirect] =useState(false);
 
-    function addPhotoByLink(){
-
-    }
     async function handleAddItem(e){
         e.preventDefault();
         try{

@@ -46,6 +46,7 @@ app.post('/wardrobe', async (req,res) => {
     jwt.verify(token,cookieEncrypt, {}, async(err,userData) =>{
         if(err) throw err;
         const clothingDoc = await Clothing.create({
+            owner:userData.id,
             name,
             color,
             size,
@@ -53,6 +54,14 @@ app.post('/wardrobe', async (req,res) => {
             description,
     })
     res.json(clothingDoc);
+});
+app.get('/wardrobe', async (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, cookieEncrypt, {}, async (err, userData) => {
+        if(err) throw err;
+        const { id } = userData;
+        res.json(await Clothing.find({ owner: id }));
+    });
 });
 });
 app.post('/login', async (req,res) => {
