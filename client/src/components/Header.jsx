@@ -10,7 +10,7 @@ function Header() {
     
     <div className='body'>
       <header className='header'>
-        <a href='/' className='header-logo'>
+        <Link to="/" className='header-logo'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -26,11 +26,13 @@ function Header() {
             />
           </svg>
           <span className='header-logo-name'>Clueless</span>
-        </a>
+        </Link>
         <div className='header-select'>
           <button className='header-select__item '>About</button>
           <div className='line'></div>
-          <button className='header-select__item'>My Wardrobe</button>
+          <Link to="/wardrobe">
+            <button className='header-select__item'>My Wardrobe</button>
+            </Link>
           <div className='line'></div>
           <button className='header-select__item'>Shop</button>
         </div>

@@ -8,6 +8,7 @@ import axios from 'axios';
 import { UserContextProvider } from './pages/UserContext';
 import Wardrobe from './pages/Wardrobe';
 import Account from './pages/Account';
+import AddItem from './pages/AddItem';
 
 axios.defaults.baseURL ='http://localhost:4000'
 axios.defaults.withCredentials = true;
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path ='/wardrobe' element={<Wardrobe/>}/>
+        <Route path ='/wardrobe/add' element={<AddItem/>}/>
         <Route path ='/account' element={<Account/>}/>
       </Route>  
     </Routes>

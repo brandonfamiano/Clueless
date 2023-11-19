@@ -53,6 +53,7 @@
     background-color: #efa0cc;
     border-radius:25px;
     justify-content: space-around;
+    align-items: center;
     @include tablet{
       height:2rem;
       width:42%;
@@ -97,6 +98,10 @@
       margin:.25rem;
       width:35px;
       border-radius: 25%;
+      a{
+        margin:0;
+        padding:0;
+      }
       @include tablet{
         width:40px;
         margin-left:2rem;

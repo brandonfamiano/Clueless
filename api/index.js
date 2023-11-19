@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 require('dotenv').config();
 const app = express();
+const Clothing = require('./models/Clothing.js')
 
 app.use(express.json());
 app.use(cookieParser())
@@ -38,6 +39,21 @@ app.post('/register', async (req,res) => {
     } catch(e) {
         res.status(422).json(e);
     }
+});
+app.post('/wardrobe', async (req,res) => {
+    const {token} = req.cookies;
+    const {name,color,size, photo, description} = req.body;
+    jwt.verify(token,cookieEncrypt, {}, async(err,userData) =>{
+        if(err) throw err;
+        const clothingDoc = await Clothing.create({
+            name,
+            color,
+            size,
+            photo,
+            description,
+    })
+    res.json(clothingDoc);
+});
 });
 app.post('/login', async (req,res) => {
     const {email,password} = req.body;  
