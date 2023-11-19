@@ -1,0 +1,31 @@
+.index{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+p {
+    font-size:20px;
+}
+img{
+    width:100%;
+}
+
+.link{
+    text-decoration: none;
+    text-align: center;
+    background-color:#db5594;
+    height:4rem;
+    width: 20rem;
+    font-size:15px;
+    border-radius: 25px;
+    border-color:white;
+    box-shadow: inset;
+    margin-bottom:4px;
+    &:hover{
+        color:white;
+        cursor: pointer;
+    }
+    @include desktop{
+        font-size: 20px;
+    }
+}

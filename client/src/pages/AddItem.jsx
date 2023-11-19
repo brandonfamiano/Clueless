@@ -32,6 +32,7 @@ export default function AddItem(){
     }
     return(
         <div>
+            <span>
             <form onSubmit={handleAddItem}>
                 <input type='text' placeholder='Name' value={name} onChange={ev => setName(ev.target.value)}/>
                 <input type='text' placeholder='Color'value={color} onChange={ev => setColor(ev.target.value)}/>
@@ -39,7 +40,8 @@ export default function AddItem(){
                 <input type='text' placeholder='Link a photo' value={photo} onChange={ev => setPhotos(ev.target.value)} />
                 <input type='text' placeholder='Description' value={description} onChange={ev => setDescription(ev.target.value)}/>
             <button className='login'>Submit</button>
-            </form>           
+            </form>
+            </span>           
         </div>
     )
 }

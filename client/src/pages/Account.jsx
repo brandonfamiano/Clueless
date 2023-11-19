@@ -15,6 +15,9 @@ export default function Account(){
         setRedirect('/');
         setUser(null);
     }
+    function myWardrobe(){
+        setRedirect('/wardrobe')
+    }
     if (redirect){
         return <Navigate to={redirect}/>
     }
@@ -23,7 +26,7 @@ export default function Account(){
         <div className="account">
             <h1>Logged in as {user?.email}</h1>
             <h1>Welcome {user?.name} !</h1>
-            <button className="account-button">My Wardrobe</button>
+            <button className="account-button" onClick={myWardrobe}>My Wardrobe</button>
             <button className="account-button" onClick={logout}>Logout</button>
         </div>
         

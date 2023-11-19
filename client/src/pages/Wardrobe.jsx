@@ -9,16 +9,10 @@ export default function Wardrobe(){
         return <Navigate to={'/login'}/>
         
     }
-    const {subpage} = useParams();
-    console.log(subpage)
     return(
         <div>
         <h1>{user?.name}'s Wardrobe</h1>
         <div className="sort">
-            <span>Shirts</span>
-            <span>Pants</span>
-            <span>Jackets</span>
-            <span>Shoes</span>
         </div>
         <div className="wardrobe">
             <div className="wardrobe-grid">
