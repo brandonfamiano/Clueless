@@ -30,6 +30,7 @@ a{
     text-decoration: none;
     margin:0;
     padding:0;
+    all: unset;
 }
 @mixin tablet {
     @media (min-width:768px){@content;}

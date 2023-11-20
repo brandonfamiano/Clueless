@@ -9,7 +9,7 @@ import { UserContextProvider } from './pages/UserContext';
 import Wardrobe from './pages/Wardrobe';
 import Account from './pages/Account';
 import AddItem from './pages/AddItem';
-
+import ItemPage from './pages/ItemPage';
 axios.defaults.baseURL ='http://localhost:4000'
 axios.defaults.withCredentials = true;
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path ='/wardrobe' element={<Wardrobe/>}/>
         <Route path ='/wardrobe/add' element={<AddItem/>}/>
+        <Route path="/wardrobe/:itemId" element={<ItemPage />} />
         <Route path ='/account' element={<Account/>}/>
       </Route>  
     </Routes>

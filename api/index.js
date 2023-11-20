@@ -80,6 +80,56 @@ app.post('/login', async (req,res) => {
         res.status(401).json({ error: 'Account information incorrect' });
     }
 });
+app.delete('/wardrobe/:id', async (req, res) => {
+    const { token } = req.cookies;
+    const { id } = req.params;
+  
+    jwt.verify(token, cookieEncrypt, {}, async (err, userData) => {
+      if (err) throw err;
+  
+      try {
+        console.log('Deleting item with ID:', id);
+  
+        // Verify ownership and delete the item
+        const deletedItem = await Clothing.findOneAndDelete({ _id: id, owner: userData.id });
+  
+        console.log('Deleted item:', deletedItem);
+  
+        if (!deletedItem) {
+          // Change the status to 200 and send a success message
+          return res.status(200).json({ message: 'Item not found or not owned by user' });
+        }
+  
+        // Send a success message with a 200 status
+        res.status(200).json({ message: 'Item deleted successfully', deletedItem });
+      } catch (error) {
+        console.error('Error deleting item:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    });
+  });
+  
+app.get('/wardrobe/:id', async (req, res) => {
+    const { token } = req.cookies;
+    const { id } = req.params;
+  
+    jwt.verify(token, cookieEncrypt, {}, async (err, userData) => {
+      if (err) throw err;
+  
+      try {
+        const clothingItem = await Clothing.findOne({ _id: id, owner: userData.id });
+  
+        if (!clothingItem) {
+          return res.status(404).json({ error: 'Clothing item not found' });
+        }
+  
+        res.json(clothingItem);
+      } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    });
+  });
+  
 app.get('/account', (req,res) =>{
     const {token} = req.cookies;
     if (token){
