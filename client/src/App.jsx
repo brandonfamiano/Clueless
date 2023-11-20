@@ -1,23 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+ import {Route, Routes} from 'react-router-dom';
+ import Index from './pages/index'
+import Login from './pages/Login';
+import Layout from './Layout';
+import Register from './pages/Register';
+import axios from 'axios';
+import { UserContextProvider } from './pages/UserContext';
+import Wardrobe from './pages/Wardrobe';
+import Account from './pages/Account';
+import AddItem from './pages/AddItem';
+import ItemPage from './pages/ItemPage';
+axios.defaults.baseURL ='http://localhost:4000'
+axios.defaults.withCredentials = true;
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div>
-      <header>
-        <a href='' className='header-logo'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-          </svg>
-          <span className='header-name'></span>
-        </a>
-      </header>
-   </div>
+    <UserContextProvider>
+    <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<Index/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path ='/wardrobe' element={<Wardrobe/>}/>
+        <Route path ='/wardrobe/add' element={<AddItem/>}/>
+        <Route path="/wardrobe/:itemId" element={<ItemPage />} />
+        <Route path ='/account' element={<Account/>}/>
+      </Route>  
+    </Routes>
+    </UserContextProvider>
   )
 }
 
-export default App
+export default App;

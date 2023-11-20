@@ -1,0 +1,28 @@
+.itempage{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login{
+    text-decoration: none;
+    text-align: center;
+    background-color:#db5594;
+    height:4rem;
+    border-radius: 25px;
+    border-color:white;
+    box-shadow: inset;
+    &:hover{
+        color:white;
+        cursor: pointer;
+    }
+    @include desktop{
+        font-size:18px;
+    }
+}
+a{
+    text-decoration: none;
+    color:#db5594;
+    &:hover{
+        color:#efa0cc;
+    }
+}

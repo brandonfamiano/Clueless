@@ -1,0 +1,121 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: solid #e586ba .01px;
+  align-items: center;
+  padding-bottom:.5rem;
+  
+  &-logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:black;
+    font-weight:medium;
+    font-size:20px;
+    @include tablet{
+      width:70%;
+      font-size: 30px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+    @include desktop{
+      font-size:40px;
+      width:80%;
+    }
+    svg{
+      width:27px;
+      color: #efa0cc;
+      
+      @include tablet{
+        width: 45px;
+        margin-right:1rem;
+      }
+      @include desktop{
+        width:60px;
+        margin-right:.5rem;
+      }
+    } 
+  }
+  &-logo:hover{
+    color: #db5594;
+    filter: drop-shadow(0 0 0.5em #646cffaa);
+    svg{
+      color:#db5594
+    }
+  }
+  &-select{
+    width:50%;
+    height:fit-content;
+    text-align: center;
+    display:flex;
+    border: solid #db5594 2px;
+    background-color: #efa0cc;
+    border-radius:25px;
+    justify-content: space-around;
+    align-items: center;
+    @include tablet{
+      height:2rem;
+      width:42%;
+    }
+    @include desktop{
+      width:25%;
+      height:2.2rem;
+    }
+    button{
+      border:none;
+      background:black;
+      border-radius: 25px;
+      background: none;
+      @include tablet{
+        font-size:17px;
+      }
+      @include desktop{
+        font-size:18px;
+      }
+    } 
+    button:hover{
+      color:white;
+      cursor: pointer;
+    }
+  }
+  .selected {
+    color:white
+  }
+  .line{
+    border-left: #db5594 solid 2px;
+  }
+  &-user{
+    width:15%;
+    @include desktop{
+      width:5%;
+      margin-right:5px;
+    }
+    button{
+      border: #efa0cc solid 2px;
+      border-radius:25%;
+      padding:.5rem;
+      margin:.25rem;
+      width:35px;
+      border-radius: 25%;
+      a{
+        margin:0;
+        padding:0;
+      }
+      @include tablet{
+        width:40px;
+        margin-left:2rem;
+      }
+      @include desktop{
+        width:42px;
+        margin-left:1rem;
+      }
+    }
+    button:hover{
+      border: #db5594 solid 2px;
+      filter: drop-shadow(0 0 0.5em #646cffaa);
+      cursor: pointer;
+    }
+  }
+  
+}
