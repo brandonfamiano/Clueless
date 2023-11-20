@@ -28,13 +28,13 @@ function Header() {
           <span className='header-logo-name'>Clueless</span>
         </Link>
         <div className='header-select'>
-          <button className='header-select__item '>About</button>
+          <Link to="/"><button className='header-select__item '>About</button></Link>
           <div className='line'></div>
           <Link to="/wardrobe">
             <button className='header-select__item'>My Wardrobe</button>
             </Link>
           <div className='line'></div>
-          <button className='header-select__item'>Shop</button>
+          <a href="https://www.saksfifthavenue.com/"><button className='header-select__item'>Shop</button></a>
         </div>
         <Link to={user?'/account':'/login'}className='header-user'>
           <button>

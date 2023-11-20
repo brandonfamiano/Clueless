@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import '../assets/styles/wardrobe.scss'
 
 export default function Wardrobe() {
   const [clothing, setWardrobe] = useState([]);
@@ -13,24 +14,30 @@ export default function Wardrobe() {
 
   const { ready, user } = useContext(UserContext);
 
-  if (ready && !user) {
+  if (ready, !user) {
     return <Navigate to={'/login'} />;
   }
 
   return (
-    <div>
+    <div className="wardrobe">
       <h1>{user?.name}'s Wardrobe</h1>
+      <Link to='/wardrobe/add'><button className="ward-button">Add Items</button></Link>
+      <div className="container">
+      
       {clothing.length > 0 &&
         clothing.map((item) => (
+          
           <div className="card" key={item.id}>
-            <img src={item.photo} alt={item.name} style={{ maxWidth: "100px" }} />
-            <h3>{item.name}</h3>
-            <p>Color: {item.color}</p>
-            <p>Size: {item.size}</p>
-            <p>{item.description}</p>
+            
+            <img src={item.photo} alt={item.name}/>
+            <h3 className="card_title">{item.name}</h3>
+            <p className="card_subtitle">Color: {item.color}</p>
+            <p className="card_subtitle"> Size: {item.size}</p>
+            <button className="ward-button">View</button>
           </div>
         ))}
-      <Link to='/wardrobe/add'>add</Link>
+        </div>
+      
     </div>
   );
 }

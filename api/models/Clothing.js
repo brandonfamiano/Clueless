@@ -6,7 +6,7 @@ const ClothingSchema = new Schema({
     name: String,
     size: String,
     color: String,
-    photos: [String],
+    photo: String,
     description: String,
 });
 

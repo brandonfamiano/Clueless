@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import '../assets/styles/login.scss'
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 export default function AddItem(){
     const [name,setName] =useState('');
     const [color,setColor] = useState('');
     const [size,setSize] = useState('');
-    const [photo,setPhotos] = useState([]);
+    const [photo,setPhotos] = useState('');
     const [description,setDescription] = useState('');
     const [redirect, setRedirect] =useState(false);
 
@@ -29,7 +29,9 @@ export default function AddItem(){
     }
     return(
         <div>
+            
             <span>
+            <Link to='/wardrobe'><div className='back'>Back</div></Link>
             <form onSubmit={handleAddItem}>
                 <input type='text' placeholder='Name' value={name} onChange={ev => setName(ev.target.value)}/>
                 <input type='text' placeholder='Color'value={color} onChange={ev => setColor(ev.target.value)}/>

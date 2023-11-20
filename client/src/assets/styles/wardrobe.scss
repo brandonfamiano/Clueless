@@ -1,0 +1,81 @@
+.wardrobe{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include desktop{
+        justify-content: center;
+    }
+}
+.add{
+    text-align: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:fit-content;
+    align-items: center;
+    justify-content: space-around;
+    border: #db5594 solid .4rem;
+    border-radius: 15%;
+    box-shadow: 5px 5px 5px #efa0cc;
+    margin:2rem;
+    padding: 1rem;
+    @include tablet{
+        font-size:26px;
+    }
+    @include desktop{
+        width:25%;
+        height:40rem;
+    }
+    img{
+        width:12.5rem;
+        @include tablet{
+            width:15rem;
+        }
+    }
+}
+h1{
+    font-size:2rem;
+}
+.ward-button{
+    text-decoration: none;
+    text-align: center;
+    background-color:#db5594;
+    height:4rem;
+    width: 15rem;
+    border-radius: 25px;
+    border-color:white;
+    box-shadow: inset;
+    &:hover{
+        color:white;
+        cursor: pointer;
+    }
+    @include tablet {
+        width:20rem;
+        font-size:2rem;
+    }
+    @include desktop{
+        font-size:18px;
+    }
+}
+a{
+    text-decoration: none;
+    color:#db5594;
+    &:hover{
+        color:#efa0cc;
+    }
+}
+.back{
+    margin-top:1rem;
+    @include desktop{
+        margin-right:50rem;
+    margin-top:2rem;
+    }
+}
